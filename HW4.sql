@@ -76,7 +76,7 @@ ALTER TABLE payment ADD CONSTRAINT FK_RentalPayment FOREIGN KEY (rental_id) REFE
 -- rental 		PK: rental_id 		FK: staff_id 		U: rental_date 		(U, FK): inventory_id, customer_id
 ALTER TABLE rental ADD PRIMARY KEY (rental_id);
 ALTER TABLE rental ADD CONSTRAINT FK_StaffRental FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE;
-ALTER TABLE rental ADD CONSTRAINT UC_Rental UNIQUE (rental_date); -- !!!!! Error Code: 1062. Duplicate entry '2011-07-09 14:55:07' for key 'rental.UC_Rental' !!!!!
+ALTER TABLE rental ADD CONSTRAINT UC_Rental UNIQUE (rental_date);
 ALTER TABLE rental ADD CONSTRAINT UC_InventoryCustomer UNIQUE (inventory_id, customer_id);
 ALTER TABLE rental ADD CONSTRAINT FK_InventoryRental FOREIGN KEY (inventory_id) REFERENCES inventory(inventory_id) ON DELETE CASCADE;
 ALTER TABLE rental ADD CONSTRAINT FK_customerRental FOREIGN KEY (customer_id) REFERENCES customer(customer_id) ON DELETE CASCADE;
